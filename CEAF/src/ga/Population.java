@@ -29,7 +29,9 @@ public class Population {
     }
     
     public void createPop(int size){
-        
+        for (int i = 0; i < size; i++) {
+            population.add(new Tour());
+        }
     }
     
     public void rouletWheel(){

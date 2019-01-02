@@ -1,0 +1,53 @@
+@startuml
+
+class Student {
+    List want
+    List notWant
+    String name 
+    String course
+}
+
+class Industry{
+    String name 
+    int vacancy
+}
+
+class World {
+    List<Student> students 
+    List<Industry> industries
+
+    void loadStudents()
+    void loadIndustries()
+}
+
+class Population{
+    List population
+    List elite
+    int popSize
+
+    Population reprod()
+    void elite()
+    void createPop()
+    void roulletWeel()
+}
+
+class Individual{
+    void mutation()
+    void fitness()
+    void crossover()
+}
+
+class Tour{
+    List dna
+    double fitness
+}
+
+World "1" --* "n" Student
+World "1" --* "n" Industry
+World --* Population
+Population --* Tour
+Tour --|> Individual
+
+
+
+@enduml
