@@ -5,18 +5,11 @@
  */
 package ga;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author andre
  */
-public class Student {
-    List want = new ArrayList<>();
-    List notWant = new ArrayList<>();
+public class Industry {
     String name;
-    String course;
-    
-    
+    int vacancy;
 }
