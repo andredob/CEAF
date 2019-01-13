@@ -26,29 +26,48 @@ public class World {
         }
         return singleton;
     }
-    
+
     List students = new ArrayList<Student>();
     List industries = new ArrayList<Industry>();
-    
-    
-    void loadStudents(){
-        String csvFile = "/Users/mkyong/csv/country.csv";
+
+    void loadStudents() {
+
+    }
+
+    void loadIndusries() {
+
+    }
+
+    public ArrayList load(String name) {
+        String csvFile = "";
+        if (name.equals("students")) {
+            csvFile = "../info/alunos.csv";
+        } else if (name.equals("industries")) {
+            csvFile = "../info/alunos.csv";
+        }
+
         BufferedReader br = null;
         String line = "";
-        String cvsSplitBy = ",";
+        String cvsSplitBy = ",";// use comma as separator
 
         try {
-
+            String [] data;
             br = new BufferedReader(new FileReader(csvFile));
-            while ((line = br.readLine()) != null) {
-
-                // use comma as separator
-                String[] country = line.split(cvsSplitBy);
-
-                System.out.println("Country [code= " + country[4] + " , name=" + country[5] + "]");
-
+            if (name.equals("students")) {
+                while ((line = br.readLine()) != null) {
+                    data = ((line.split(cvsSplitBy))); //it takes the full line each iteration
+                    Student s = new Student(data[0]);
+                    students.add(s);
+                }
+            } else if(name.equals("indutries")){
+                while ((line = br.readLine()) != null) {
+                    data = ((line.split(cvsSplitBy))); //it takes the full line each iteration
+                    Industry i = new Industry();
+                    industries.add(i);
+                }
+            } else{
+                throw new IOException("Erro ao definir o dado requerido");
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -62,9 +81,13 @@ public class World {
                 }
             }
         }
+        return null;
     }
-    
-    void loadIndusries(){
-        
+
+    public String toString(ArrayList data) {
+        for (Object s : data) {
+            System.out.println(s);
+        }
+        return null;
     }
 }
