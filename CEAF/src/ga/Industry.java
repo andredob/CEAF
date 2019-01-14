@@ -12,4 +12,22 @@ package ga;
 public class Industry {
     String name;
     int vacancy;
+    
+    String cvsSplitBy = ";";// use semicolon as separator
+    String [] newData;
+    
+    public Industry(String data){
+        try {
+            newData = ((data.split(cvsSplitBy))); //Spliting
+            
+            if(!newData.equals(null)){
+                this.name = newData[0];
+                this.vacancy = Integer.parseInt(newData[1]);
+            }else {
+                throw new Exception("Erro ao criar empresa");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }

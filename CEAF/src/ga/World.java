@@ -62,7 +62,7 @@ public class World {
             } else if(name.equals("indutries")){
                 while ((line = br.readLine()) != null) {
                     data = ((line.split(cvsSplitBy))); //it takes the full line each iteration
-                    Industry i = new Industry();
+                    Industry i = new Industry(data[0]);
                     industries.add(i);
                 }
             } else{

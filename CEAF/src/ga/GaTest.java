@@ -10,5 +10,8 @@ public class GaTest {
         World w = World.getInstance();
         
         w.load("students");
+        for (Object student : w.students) {
+            System.out.println(student.toString());
+        }
     }
 }

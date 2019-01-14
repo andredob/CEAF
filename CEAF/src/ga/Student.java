@@ -5,7 +5,6 @@
  */
 package ga;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,22 +20,22 @@ public class Student {
     String course;
     
     String cvsSplitBy = ";";// use semicolon as separator
-    String[] newdata;
+    String[] newData;
 
     public Student(String data) {
         //System.out.println(data);
         try {
-            newdata = ((data.split(cvsSplitBy)));
-            if(!newdata.equals(null)){
-                this.name = newdata[0];
+            newData = ((data.split(cvsSplitBy)));
+            if(!newData.equals(null)){
+                this.name = newData[0];
                 
-                this.want.add(newdata[1]);
-                this.want.add(newdata[2]);
-                this.want.add(newdata[3]);
+                this.want.add(newData[1]);
+                this.want.add(newData[2]);
+                this.want.add(newData[3]);
                 
-                this.notWant.add(newdata[4]);
-                this.notWant.add(newdata[5]);
-                this.notWant.add(newdata[6]);
+                this.notWant.add(newData[4]);
+                this.notWant.add(newData[5]);
+                this.notWant.add(newData[6]);
                 
             }else {
                 throw new Exception("Erro ao criar aluno");
@@ -44,6 +43,16 @@ public class Student {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+    
+    public String toString(){
+        return "Nome: " + this.name + "\n" +
+               "Quer 1: " + this.want.get(0) + "\n" +
+               "Quer 2: " + this.want.get(1) + "\n" +
+               "Quer 3: " + this.want.get(2) + "\n" +
+               "Não quer 1: " + this.notWant.get(0) + "\n" +
+               "Não quer 2: " + this.notWant.get(1) + "\n" +
+               "Não quer 3: " + this.notWant.get(2) + "\n" ;
     }
 
 }
