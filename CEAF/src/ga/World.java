@@ -43,7 +43,9 @@ public class World {
         if (name.equals("students")) {
             csvFile = "../info/alunos.csv";
         } else if (name.equals("industries")) {
-            csvFile = "../info/alunos.csv";
+            csvFile = "../info/empresas.csv";
+        } else {
+            System.out.println("Arquivo não encontrado");
         }
 
         BufferedReader br = null;
@@ -59,7 +61,7 @@ public class World {
                     Student s = new Student(data[0]);
                     students.add(s);
                 }
-            } else if(name.equals("indutries")){
+            } else if(name.equals("industries")){
                 while ((line = br.readLine()) != null) {
                     data = ((line.split(cvsSplitBy))); //it takes the full line each iteration
                     Industry i = new Industry(data[0]);
